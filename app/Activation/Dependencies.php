@@ -68,6 +68,15 @@ class Dependencies {
 			array('jquery'), 
 			$this->plugin_version
 		);
+		wp_localize_script( 
+			'unit-switcher-admin', 
+			'unit_switcher', 
+			array( 
+				'name' => __('Name', 'unitswitcher'),
+				'singular_name' => __('Singular Name', 'unitswitcher'),
+				'formula' => __('Formula', 'unitswitcher')
+			)
+		);
 	}
 
 	/**
