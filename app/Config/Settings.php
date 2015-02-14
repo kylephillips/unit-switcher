@@ -53,6 +53,8 @@ class Settings {
 	public function registerSettings()
 	{
 		register_setting( 'unit-switcher-general', 'unitswitcher_dependencies' );
+		register_setting( 'unit-switcher-general', 'unitswitcher_save' );
+		register_setting( 'unit-switcher-units', 'unitswitcher_units' );
 	}
 
 }

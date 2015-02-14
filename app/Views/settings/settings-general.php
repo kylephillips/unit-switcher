@@ -4,6 +4,25 @@
 	<td><strong><?php echo UnitSwitcher\Helpers::version(); ?></strong></td>
 </tr>
 <tr valign="top">
+	<th scope="row"><?php _e('Save User Selection', 'unitswitcher'); ?></th>
+	<td valign="top">
+		<label>
+			<input type="radio" name="unitswitcher_save" value="none" <?php if ( $this->settings_repo->saveType() == 'none' ) echo 'checked'; ?> ) />
+			<?php _e('None', 'unitswitcher'); ?>
+		</label>
+		<br>
+		<label>
+			<input type="radio" name="unitswitcher_save" value="cookie" <?php if ( $this->settings_repo->saveType() == 'cookie' ) echo 'checked'; ?> />
+			<?php _e('By Cookie', 'unitswitcher'); ?>
+		</label>
+		<br>
+		<label>
+			<input type="radio" name="unitswitcher_save" value="session" <?php if ( $this->settings_repo->saveType() == 'session' ) echo 'checked'; ?> />
+			<?php _e('By Session', 'unitswitcher'); ?>
+		</label>
+	</td>
+</tr>
+<tr valign="top">
 	<th scope="row"><?php _e('Display Options', 'unitswitcher'); ?></th>
 	<td>
 		<div class="unitswitcher-dependency">

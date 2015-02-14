@@ -20,6 +20,9 @@ class Activate {
 				'js' => 'true'
 			));
 		}
+		if ( !get_option('unitswitcher_save') ){
+			update_option('unitswitcher_save', 'none');
+		}
 	}
 
 }
