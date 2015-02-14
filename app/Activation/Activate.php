@@ -10,6 +10,43 @@ class Activate {
 	}
 
 	/**
+	* Default Units
+	*/
+	public function defaultUnits()
+	{
+		$units = array(
+			array(
+				'default' => 'feet',
+				'default_singular' => 'foot',
+				'alternates' => array(
+					array(
+						'name' => 'inches',
+						'name_singular' => 'in',
+						'formula' => 'X/12'
+					),
+					array(
+						'name' => 'centimeters',
+						'name_singular' => 'cm',
+						'formula' => 'X*30.48'
+					)
+				)
+			),
+			array(
+				'default' => 'acres',
+				'default_singular' => 'acre',
+				'alternates' => array(
+					array(
+						'name' => 'kilometers squared',
+						'name_singular' => 'km2',
+						'formula'=> 'X*0.00404686'
+					)
+				)
+			)
+		);
+		return $units;
+	}
+
+	/**
 	* Default Plugin Options
 	*/
 	private function setOptions()
@@ -22,6 +59,9 @@ class Activate {
 		}
 		if ( !get_option('unitswitcher_save') ){
 			update_option('unitswitcher_save', 'none');
+		}
+		if ( !get_option('unitswitcher_units') ){
+			update_option('unitswitcher_units', $this->defaultUnits() );
 		}
 	}
 

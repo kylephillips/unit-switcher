@@ -23,4 +23,14 @@ class SettingsRepository {
 		return get_option('unitswitcher_save', true);
 	}
 
+	/**
+	* Get All Units
+	* @return array
+	* @since 0.1
+	*/
+	public function allUnits()
+	{
+		return get_option('unitswitcher_units');
+	}
+
 }
