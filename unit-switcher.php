@@ -2,7 +2,7 @@
 /*
 Plugin Name: Unit Switcher
 Plugin URI: http://unitswitcher.com
-Description: Provides users with a way to change units while visiting your site.
+Description: Provides users with a way to change preferred measurement units while visiting your site.
 Version: 0.1
 Author: Kyle Phillips
 Author URI: https://github.com/kylephillips

@@ -17,6 +17,7 @@ class Bootstrap {
 	public function init()
 	{
 		new Config\Settings;
+		new Activation\Dependencies;
 	}
 
 
