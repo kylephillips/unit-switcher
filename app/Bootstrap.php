@@ -16,7 +16,7 @@ class Bootstrap {
 	*/
 	public function init()
 	{
-		// Initialization
+		new Config\Settings;
 	}
 
 
