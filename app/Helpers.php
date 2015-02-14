@@ -30,4 +30,21 @@ class Helpers {
 		return dirname(__FILE__) . '/Views/' . $file . '.php';
 	}
 
+	/**
+	* Plugin Version
+	*/
+	public static function version()
+	{
+		global $unit_switcher_version;
+		return $unit_switcher_version;
+	}
+
+	/**
+	* Get File Contents
+	*/
+	public static function getFileContents($file)
+	{
+		return file_get_contents( dirname( dirname(__FILE__) ) . '/' . $file);
+	}
+
 }

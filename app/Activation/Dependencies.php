@@ -1,6 +1,7 @@
 <?php namespace UnitSwitcher\Activation;
 
 use UnitSwitcher\Helpers;
+use UnitSwitcher\Config\SettingsRepository;
 
 /**
 * Plugin Dependencies
@@ -17,9 +18,15 @@ class Dependencies {
 	*/
 	private $plugin_version;
 
+	/**
+	* Settings Repository
+	*/
+	private $settings_repo;
+
 
 	public function __construct()
 	{
+		$this->settings_repo = new SettingsRepository;
 		$this->setPluginVersion();
 		$this->plugin_dir = Helpers::plugin_url();
 		add_action( 'admin_enqueue_scripts', array($this, 'adminStyles') );
@@ -68,6 +75,7 @@ class Dependencies {
 	*/
 	public function frontendStyles()
 	{
+		if ( !$this->settings_repo->outputDependency('css') ) return;
 		wp_enqueue_style(
 			'unit-switcher', 
 			$this->plugin_dir . '/assets/css/unit-switcher.css', 
@@ -81,6 +89,7 @@ class Dependencies {
 	*/
 	public function frontendScripts()
 	{
+		if ( !$this->settings_repo->outputDependency('js') ) return;
 		wp_enqueue_script(
 			'unit-switcher', 
 			$this->plugin_dir . '/assets/js/unit-switcher.min.js', 
