@@ -1,0 +1,59 @@
+//
+// Buttons
+// --------------------------------------------------
+
+// Round Button
+.unitswitcher-round-button {
+	display: inline-block;
+	width: 24px;
+	line-height: 24px;
+	font-size: 20px;
+	background-color: #f7f7f7;
+	border: 1px solid #cccccc;
+	border-radius: 15px;
+	text-decoration: none;
+	text-align: center;
+	color: darken($white, 80%);
+	box-shadow: inset 0px 1px 0px 0px $white, 1px 1px 1px 0px rgba(0,0,0,.06);
+	transition: all 200ms ease;
+	&:hover {
+		transition: all 200ms ease;
+		background-color: $blue;
+		color: $white;
+		box-shadow: 1px 1px 1px 0px rgba(0,0,0,.06);
+		border-color: $blue;
+	}
+}
+
+
+// Add/Remove Buttons
+.unitswitcher-btn-group {
+	position: absolute;
+	right: -9px;
+	top: 50%;
+	margin-top: -18px;
+	a {
+		display: block;
+		width: 18px;
+		line-height: 18px;
+		background-color: #f7f7f7;
+		border: 1px solid #cccccc;
+		border-radius: 0px 0px 2px 2px;
+		transition: all 200ms ease;
+		text-decoration: none;
+		text-align: center;
+		font-size: 16px;
+		font-weight: bold;
+		transition: all 200ms ease;
+		&:first-child {
+			border-radius: 2px 2px 0px 0px;
+			border-bottom: 0;
+		}
+		&:hover {
+			transition: all 200ms ease;
+			background-color: $blue;
+			color: $white;
+			border-color: $blue;
+		}
+	}
+}

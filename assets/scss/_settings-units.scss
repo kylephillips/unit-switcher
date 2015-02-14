@@ -2,6 +2,120 @@
 // Admin Settings - Units
 // --------------------------------------------------
 
-.unitswitcher-units {
-	
+// Unit List Wrapper
+.unitswitcher-units-header {
+	@include unstyled;
+	@include clearfix;
+	padding: 8px 0;
+	li {
+		float: left;
+		width: 65%;
+		&:first-child {
+			width: 35%;
+		}
+		span {
+			font-weight: bold;
+			color: $blue;
+		}
+	}
 }
+
+// Primary List of Units
+.unitswitcher-unit-list {
+	@include unstyled;
+	li {
+		background-color: #fcfcfc;
+		@include wptable;
+		padding: 0;
+		position: relative;
+		margin-bottom: 20px;
+	}
+}
+
+// Individual Unit Table
+.unitswitcher-unit-table {
+	width: 100%;
+	border-collapse: collapse;
+	td {
+		width: 65%;
+		padding: 15px 45px 15px 15px;
+		vertical-align: top;
+	}
+	// Default Unit
+	td:first-child {
+		padding: 15px;
+		vertical-align: middle;
+		width: 35%;
+		background-color: darken($white, 6%);
+	}
+	input[type="text"]{
+		border: 0;
+		background: transparent;
+		box-shadow: none;
+		width: 100%;
+		box-sizing: border-box;
+		font-size: 13px;
+	}
+}
+
+// Default Unit
+.unitswitcher-defaults {
+	background-color: $white;
+	border: 1px solid $border;
+	border-radius: 2px;
+	input[type="text"]{
+		height: 30px;
+		border-top: 1px solid $border;
+		&:first-child {
+			border-top: none;
+		}
+	}
+}
+
+// Secondary list of alternate units
+.unitswitcher-alternates {
+	border: 1px solid $border;
+	li {
+		border: 0;
+		box-shadow: none;
+		background-color: $white;
+		border-top: 1px solid $border;
+		margin: 0;
+		@include clearfix;
+		&:first-child {
+			border: 0;
+		}
+		&:nth-child(even){
+			background: transparent;
+		}
+		.formula, .alternates {
+			float: left;
+			width: 50%;
+			box-sizing: border-box;
+		}
+		.formula {
+			position: relative;
+			input[type="text"]{
+				height: 60px;
+				font-size: 18px;
+				padding-right: 30px;
+			}
+			.equals {
+				position: absolute;
+				right: 8px;
+				top: 18px;
+				font-size: 20px;
+			}
+		}
+		.alternates {
+			border-left: 1px solid $border;
+			input[type="text"]{
+				height: 30px;
+				&:first-child {
+					border-bottom: 1px solid $border;
+				}
+			}
+		}
+	} // li
+} // .unitswitcher-alternates
+
