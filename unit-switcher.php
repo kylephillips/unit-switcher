@@ -50,5 +50,6 @@ if( !class_exists('Bootstrap') ) :
     unit_switcher_check_versions();
     require_once('vendor/autoload.php');
     require_once('app/UnitSwitcher.php');
+    require_once('app/API/functions.php');
     UnitSwitcher::init();
 endif;

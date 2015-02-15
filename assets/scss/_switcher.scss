@@ -1,0 +1,38 @@
+//
+// Switcher/Dropdown
+// --------------------------------------------------
+
+.unit-switcher-switch {
+	position: relative;
+	z-index: 1;
+	a:active, a:focus {
+		outline: none;
+	}
+	ul {
+		display: none;
+		@include unstyled;
+		position: absolute;
+		z-index: 2;
+		background-color: $white;
+		border: 1px solid darken($white, 8%);
+		box-shadow: 1px 1px 2px 0px rgba(0,0,0,.2);
+		border-radius: 3px;
+		li a {
+			display: block;
+			padding: 4px 15px;
+			border-top: 1px solid darken($white, 10%);
+		}
+	}
+}
+
+// Caret
+.unit-switcher-caret {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: url('../images/caret.png') no-repeat;
+	margin-left: 8px;
+	&.open {
+		background: url('../images/caret-up.png') no-repeat;
+	}
+}
