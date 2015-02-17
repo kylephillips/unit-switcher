@@ -1,6 +1,8 @@
 <div class="wrap">
 	<h1><?php _e('Unit Switcher Settings', 'unitswitcher'); ?></h1>
 
+	<?php //if ( is_wp_error($unit_errors) ) echo $unit_errors->get_error_message(); ?>
+
 	<h2 class="nav-tab-wrapper">
 		<a class="nav-tab <?php if ( $tab == 'general' ) echo 'nav-tab-active'; ?>" href="options-general.php?page=unit-switcher">
 			<?php _e('General', 'unitswitcher'); ?>

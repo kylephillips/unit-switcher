@@ -18,6 +18,7 @@ class Settings {
 		$this->settings_repo = new SettingsRepository;
 		add_action( 'admin_init', array( $this, 'registerSettings' ) );
 		add_action( 'admin_menu', array( $this, 'registerSettingsPage' ) );
+		add_filter( 'pre_update_option_unitswitcher_units', array($this, 'validateUnits'), 10, 2 );
 	}
 
 
@@ -55,6 +56,16 @@ class Settings {
 		register_setting( 'unit-switcher-general', 'unitswitcher_dependencies' );
 		register_setting( 'unit-switcher-general', 'unitswitcher_save' );
 		register_setting( 'unit-switcher-units', 'unitswitcher_units' );
+	}
+
+	/**
+	* Validate Units
+	*/
+	public function validateUnits($new_value, $old_value)
+	{
+		// add_settings_error( 'unit-switcher-units', 'unit-switcher', 'please include all fields', 'error' );
+		// return $new_value;
+		return $new_value;
 	}
 
 }
