@@ -7,6 +7,7 @@ class Bootstrap {
 	public function __construct()
 	{
 		$this->init();
+		add_action( 'init', array($this, 'startSession') );
 		add_filter( 'plugin_action_links_' . 'unit-switcher/unit-switcher.php', array($this, 'settingsLink' ) );
 		add_action( 'plugins_loaded', array($this, 'addLocalization') );
 	}
@@ -44,6 +45,14 @@ class Bootstrap {
 			'unitswitcher', 
 			false, 
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages' );
+	}
+
+	/**
+	* Initialize a Session
+	*/
+	public function startSession()
+	{
+		if ( !session_id() ) session_start();
 	}
 
 

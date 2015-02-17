@@ -13,6 +13,7 @@ class Settings {
 	*/
 	private $settings_repo;
 
+
 	public function __construct()
 	{
 		$this->settings_repo = new SettingsRepository;

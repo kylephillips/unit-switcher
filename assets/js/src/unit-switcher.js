@@ -1,50 +1,37 @@
 /**
 * Scripts Required by Unit Switcher Plugin in Front End
-* @author Kyle Phillips
 */
 jQuery(function($){
 
+
 /**
 * --------------------------------------------------------------------
-* Unit Dropdown
+* Unit Switcher
 * --------------------------------------------------------------------
 */
-
-$('*[data-unit-dropdown]').on('click', function(e){
+$(document).on('click', '*[data-unitswitcher]', function(e){
 	e.preventDefault();
-	var list = $(this).parent('.unit-switcher-switch').find('ul');
-	var caret = $(this).find('.unit-switcher-caret');
-	if ( $(list).is(':visible') ){
-		console.log('hide it');
-		$(list).hide();
-		$(caret).removeClass('open');
-	} else {
-		$(list).show();
-		$(caret).addClass('open');
-	}
+	switch_units($(this));
 });
 
-$(document).mouseup(function(e){
+/**
+* Process the switch
+*/
+function switch_units(item)
+{
+	var parent = $(item).attr('data-parentunit');
+	var selected_unit = $(item).attr('data-alternate');
+	var allunits = $('*[data-unit="' + parent + '"]');
 
-	var container = $('.unit-switcher-switch ul');
-	var target = $(e.target);
+	$.each(allunits, function(i, v){
+		var newunit = $(this).siblings('ul').find('*[data-alternate="' + selected_unit + '"]');
+		var newnumber = $(newunit).attr('data-unitvalue');
+		$(this).find('.unit-switcher-value').text(newnumber + ' ' + selected_unit);
+	});
 
-	// if ( $(e.target).parent('.unit-switcher-switch').find('ul:visible').length > 0 ){
-	// 	console.log('hide');
-	// 	$(e.target).parent('.unit-switcher-switch').find('ul').hide();
-	// 	$('.unit-switcher-caret').removeClass('open');
-	// 	return false;
-	// }
+	// Close the menu
+	$('.unit-switcher-switch').removeClass('open');
+}
 
-	// if ( $(e.target).hasClass('unit-switcher-toggle') 
-	// 	&& $(e.target).parent('.unit-switcher-switch').find('ul:visible').length == 0 ) return;
-	
-	if ( !container.is(e.target)
-		&& container.has(e.target).length === 0 ){
-		container.hide();
-		$('.unit-switcher-caret').removeClass('open');
-	}
-
-});
 
 }); // jQuery

@@ -25,6 +25,12 @@
 			border-top: 1px solid darken($white, 10%);
 		}
 	}
+	&.open ul {
+		display: block;
+	}
+	&.open .unit-switcher-caret {
+		background: url('../images/caret-up.png') no-repeat;
+	}
 }
 
 // Caret

@@ -54,15 +54,25 @@ class Dropdown {
 	{
 		$alternates = $this->settings_repo->getAlternates($this->unit);
 		if ( empty($alternates) ) return;
-		$out = '<ul>';
+		$out = '<ul class="dropdown-menu">';
 		foreach ( $alternates as $key => $alternate ){
 			if ( $key == 0 ) {
-				$out .= '<li><a href="#" data-alternate="' . $alternate . '" data-parentunit="' . $this->unit . '" data-unitswitcher data-unitvalue="' . $this->number . '">' . $alternate . '</a></li>';
+				$out .= $this->defaultUnit($alternate); 
 				continue;
 			}
 			$out .= '<li><a href="#" data-alternate="' . $alternate . '" data-parentunit="' . $this->unit . '" data-unitswitcher data-unitvalue="' . $this->alternateNumber($alternate) . '">' . $alternate . '</a></li>';
 		}
 		$out .= '</ul>';
+		return $out;
+	}
+
+	/**
+	* Displayed Unit
+	* @param string $alternate
+	*/
+	private function defaultUnit($alternate)
+	{
+		$out = '<li><a href="#" data-alternate="' . $alternate . '" data-parentunit="' . $this->unit . '" data-unitswitcher data-unitvalue="' . $this->number . '">' . $alternate . '</a></li>';
 		return $out;
 	}
 
