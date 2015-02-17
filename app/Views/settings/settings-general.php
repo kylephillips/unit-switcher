@@ -32,7 +32,7 @@
 			</label>
 			<div class="unitswitcher-dependency-content">
 				<p><em><?php _e('If you are compiling your own minified CSS, include the CSS below:', 'unitswitcher'); ?></em></p>
-				<textarea><?php echo UnitSwitcher\Helpers::getFileContents('assets/css/unit-switcher.css'); ?></textarea>
+				<textarea><?php echo UnitSwitcher\Helpers::getFileContents('assets/css/styles-uncompressed.css'); ?></textarea>
 			</div>
 		</div>
 

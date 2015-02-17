@@ -7,6 +7,7 @@ var plumber = require('gulp-plumber');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 
 // Paths
 var scss = 'assets/scss/**/*';
@@ -32,6 +33,18 @@ gulp.task('scss', function(){
 		.pipe(plumber())
 		.pipe(livereload())
 		.pipe(notify('Nested Pages styles compiled & compressed.'));
+});
+
+/**
+* uncompressed styles
+*/
+gulp.task('uncompressed_styles', function(){
+	return gulp.src(scss)
+		.pipe(sass({ outputStyle: 'expanded' }))
+		.pipe(autoprefix('last 15 version'))
+		.pipe(rename('styles-uncompressed.css'))
+		.pipe(gulp.dest(css))
+		.pipe(plumber())
 });
 
 /**
@@ -64,7 +77,7 @@ gulp.task('frontend_scripts', function(){
 */
 gulp.task('watch', function(){
 	livereload.listen(35829);
-	gulp.watch(scss, ['scss']);
+	gulp.watch(scss, ['scss', 'uncompressed_styles']);
 	gulp.watch(js_admin_source, ['admin_scripts']);
 	gulp.watch(js_frontend_source, ['frontend_scripts']);
 });
@@ -72,4 +85,4 @@ gulp.task('watch', function(){
 /**
 * Default
 */
-gulp.task('default', ['scss', 'admin_scripts', 'frontend_scripts', 'watch']);
+gulp.task('default', ['scss', 'uncompressed_styles', 'admin_scripts', 'frontend_scripts', 'watch']);
