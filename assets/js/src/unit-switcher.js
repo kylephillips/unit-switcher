@@ -52,11 +52,7 @@ function save_user_pref(parent_unit, selected_unit)
 			nonce : unit_switcher.nonce
 		},
 		success: function(data){
-			if (data.status === 'error'){
-				console.log(data.message);
-			} else {
-				console.log(data);
-			}
+			console.log(data);
 		}
 	});
 }

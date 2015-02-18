@@ -54,7 +54,16 @@ class UserPreference {
 	*/
 	private function saveToSession()
 	{
-		
+		$_SESSION['unitswitcher_units'][$this->parent_unit] = $this->selected_unit;
 	}
+
+	/**
+	* Save to Cookies
+	*/
+	private function saveToCookie()
+	{
+		setcookie('unitswitcher_units[' . $this->parent_unit . ']', $this->selected_unit, time()+3600, '/' );
+	}
+
 
 }

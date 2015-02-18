@@ -13,7 +13,5 @@ function unit_switcher($variable = '', $unit = '', $alternate = '')
 	$out .= $dropdown->display();
 	$out .= '</div>';
 
-	$_SESSION['unitswitcher_units'] = array('feet'=>'miles');
-
 	echo $out;
 }
