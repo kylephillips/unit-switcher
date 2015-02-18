@@ -14,16 +14,6 @@ class SettingsRepository {
 	}
 
 	/**
-	* Get Method of Saving User Selection
-	* @return array
-	* @since 0.1
-	*/
-	public function saveType()
-	{
-		return get_option('unitswitcher_save', true);
-	}
-
-	/**
 	* Get All Units
 	* @return array
 	* @since 0.1
@@ -64,6 +54,15 @@ class SettingsRepository {
 				if ( $alternate['name'] == $unit ) return $alternate['formula'];
 			}
 		}
+	}
+
+	/**
+	* Get the save type
+	*/
+	public function saveType()
+	{
+		$option = get_option('unitswitcher_save', true);
+		return ( $option !== 'none') ? $option : false;
 	}
 
 }

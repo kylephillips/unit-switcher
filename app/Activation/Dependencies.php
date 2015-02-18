@@ -105,6 +105,14 @@ class Dependencies {
 			array('jquery'), 
 			$this->plugin_version
 		);
+		wp_localize_script(
+			'unit-switcher',
+			'unit_switcher',
+			array(
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'nonce' => wp_create_nonce( 'unit_switcher-nonce' )
+			)
+		);
 	}
 
 }

@@ -7,7 +7,7 @@
 	<th scope="row"><?php _e('Save User Selection', 'unitswitcher'); ?></th>
 	<td valign="top">
 		<label>
-			<input type="radio" name="unitswitcher_save" value="none" <?php if ( $this->settings_repo->saveType() == 'none' ) echo 'checked'; ?> ) />
+			<input type="radio" name="unitswitcher_save" value="none" <?php if ( !$this->settings_repo->saveType() ) echo 'checked'; ?> ) />
 			<?php _e('None', 'unitswitcher'); ?>
 		</label>
 		<br>

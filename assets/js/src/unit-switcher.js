@@ -31,6 +31,34 @@ function switch_units(item)
 
 	// Close the menu
 	$('.unit-switcher-switch').removeClass('open');
+	save_user_pref(parent, selected_unit);
+}
+
+/**
+* Save the user preference
+* @param string parent_unit
+* @param string selected_unit
+*/
+function save_user_pref(parent_unit, selected_unit)
+{
+	$.ajax({
+		url: unit_switcher.ajaxurl,
+		type: 'post',
+		datatype: 'json',
+		data: {
+			action : 'unitswitcher',
+			parent_unit : parent_unit,
+			selected_unit : selected_unit,
+			nonce : unit_switcher.nonce
+		},
+		success: function(data){
+			if (data.status === 'error'){
+				console.log(data.message);
+			} else {
+				console.log(data);
+			}
+		}
+	});
 }
 
 
