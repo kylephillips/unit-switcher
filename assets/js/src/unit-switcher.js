@@ -50,9 +50,6 @@ function save_user_pref(parent_unit, selected_unit)
 			parent_unit : parent_unit,
 			selected_unit : selected_unit,
 			nonce : unit_switcher.nonce
-		},
-		success: function(data){
-			console.log(data);
 		}
 	});
 }
