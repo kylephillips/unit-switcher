@@ -22,13 +22,23 @@ class Activate {
 					array(
 						'name' => 'inches',
 						'name_singular' => 'in',
-						'formula' => 'X/12'
+						'formula' => 'X*12'
 					),
 					array(
 						'name' => 'centimeters',
 						'name_singular' => 'cm',
 						'formula' => 'X*30.48'
-					)
+					),
+					array(
+						'name' => 'yards',
+						'name_singular' => 'yard',
+						'formula' => 'X*0.333333'
+					),
+					array(
+						'name' => 'miles',
+						'name_singular' => 'mile',
+						'formula' => 'X/5280'
+					),
 				)
 			),
 			array(
@@ -39,6 +49,16 @@ class Activate {
 						'name' => 'kilometers squared',
 						'name_singular' => 'km2',
 						'formula'=> 'X*0.00404686'
+					),
+					array(
+						'name' => 'square miles',
+						'name_singular' => 'sq mi',
+						'formula'=> 'X*0.0015625'
+					),
+					array(
+						'name' => 'square feet',
+						'name_singular' => 'sq ft',
+						'formula'=> 'X*43560'
 					)
 				)
 			)

@@ -17,7 +17,7 @@ Add front end dropdown for toggling and saving of units and measurements.
 
 Unit Switcher provides your users with a way to choose and display their preferred unit of measurement on the fly. The user's preferred unit of measurement is saved via session, cookie, or none – configurable under the plugin settings. 
 
-One example of usage would be for a real estate listing website. If land size is stored as acres, it may be helpful to provide a method for users to toggle between acres and kilometers squared as their preferred method of measurement.
+One example of usage would be for a real estate listing website. If land size is stored as acres, it may be helpful to provide a method for users to toggle between acres and kilometers squared as their preferred method of measurement. Another example may be a recipe site, where it may be helpful to provide users with a way to toggle between ingredient measurement units.
 
 Units may be added as needed, along with alternate units and the conversion formulas.
 
