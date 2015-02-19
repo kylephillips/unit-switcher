@@ -5,9 +5,9 @@ use UnitSwitcher\Entities\Unit\Dropdown;
 /**
 * Display the unit switcher
 */
-function unit_switcher($variable = '', $unit = '', $alternate = '')
+function unit_switcher($variable = '', $primaryunit = '')
 {	
-	$dropdown = new Dropdown($unit, $variable);
+	$dropdown = new Dropdown($primaryunit, $variable);
 	$out = '<div class="unit-switcher-switch dropdown">';
 	$out .= $dropdown->display();
 	$out .= '</div>';
