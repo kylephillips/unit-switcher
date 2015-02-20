@@ -2,6 +2,7 @@
 
 use UnitSwitcher\Helpers;
 use UnitSwitcher\Config\SettingsRepository;
+use UnitSwitcher\Entities\Unit\UnitValidator;
 
 /**
 * Plugin Settings
@@ -19,7 +20,7 @@ class Settings {
 		$this->settings_repo = new SettingsRepository;
 		add_action( 'admin_init', array( $this, 'registerSettings' ) );
 		add_action( 'admin_menu', array( $this, 'registerSettingsPage' ) );
-		add_filter( 'pre_update_option_unitswitcher_units', array($this, 'validateUnits'), 10, 2 );
+		//add_filter( 'pre_update_option_unitswitcher_units', array($this, 'validateUnits'), 10, 2 );
 	}
 
 
@@ -56,17 +57,18 @@ class Settings {
 	{
 		register_setting( 'unit-switcher-general', 'unitswitcher_dependencies' );
 		register_setting( 'unit-switcher-general', 'unitswitcher_save' );
-		register_setting( 'unit-switcher-units', 'unitswitcher_units' );
+		register_setting( 'unit-switcher-units', 'unitswitcher_units', array($this, 'validateUnits') );
 	}
 
 	/**
 	* Validate Units
 	*/
-	public function validateUnits($new_value, $old_value)
+	public function validateUnits($input)
 	{
-		// add_settings_error( 'unit-switcher-units', 'unit-switcher', 'please include all fields', 'error' );
-		// return $new_value;
-		return $new_value;
+		$validator = new UnitValidator($input);
+		if ( $validator->validates($input) ) return $input;
+		add_settings_error( 'unit-switcher-units', 'unit-switcher', $validator->error(), 'error' );
+		return false;
 	}
 
 }
