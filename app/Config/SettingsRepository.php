@@ -35,6 +35,7 @@ class SettingsRepository {
 		foreach($units as $single_unit){
 			if ( $single_unit['default'] == $unit ) $selected_unit = $single_unit;
 		}
+		if ( !isset($selected_unit) ) return false;
 		$unit_list = array($selected_unit['default']);
 		foreach($selected_unit['alternates'] as $alternate){
 			array_push($unit_list, $alternate['name']);

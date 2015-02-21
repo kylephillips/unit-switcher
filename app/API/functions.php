@@ -8,9 +8,21 @@ use UnitSwitcher\Entities\Unit\Dropdown;
 function unit_switcher($variable = '', $primaryunit = '')
 {	
 	$dropdown = new Dropdown($primaryunit, $variable);
-	$out = '<div class="unit-switcher-switch dropdown">';
-	$out .= $dropdown->display();
-	$out .= '</div>';
+	echo  ( $dropdown->hasAlternates() ) ? $dropdown->display() : $variable . ' ' . $primaryunit;
+}
 
-	echo $out;
+/**
+* Get a JSON formatted list of units
+*/
+function unit_switcher_json($variable = '', $primaryunit = '')
+{
+
+}
+
+/**
+* Convert a given value to a unit
+*/
+function unit_switcher_convert($variable = '', $primaryunit = '', $alternate = '')
+{
+
 }

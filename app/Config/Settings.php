@@ -20,7 +20,6 @@ class Settings {
 		$this->settings_repo = new SettingsRepository;
 		add_action( 'admin_init', array( $this, 'registerSettings' ) );
 		add_action( 'admin_menu', array( $this, 'registerSettingsPage' ) );
-		//add_filter( 'pre_update_option_unitswitcher_units', array($this, 'validateUnits'), 10, 2 );
 	}
 
 

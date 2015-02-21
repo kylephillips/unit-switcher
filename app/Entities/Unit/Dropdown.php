@@ -20,6 +20,12 @@ class Dropdown {
 	private $number;
 
 	/**
+	* Alternates for a given unit
+	* @var array
+	*/
+	private $alternates;
+
+	/**
 	* Calculator
 	*/
 	private $calculator;
@@ -42,6 +48,7 @@ class Dropdown {
 		$this->user_preference = new UserPreference;
 		$this->number = $number;
 		$this->unit = $unit;
+		$this->alternates = $this->settings_repo->getAlternates($this->unit);
 	}
 
 	/**
@@ -60,18 +67,18 @@ class Dropdown {
 	*/
 	public function display()
 	{
-		$alternates = $this->settings_repo->getAlternates($this->unit);
-		$out = $this->selectedUnit($alternates);
-		if ( empty($alternates) ) return;
+		if ( !$this->alternates ) return;
+		
+		$out = $this->selectedUnit($this->alternates);
 		$out .= '<ul class="dropdown-menu">';
-		foreach ( $alternates as $key => $alternate ){
+		foreach ( $this->alternates as $key => $alternate ){
 			if ( $key == 0 ) {
 				$out .= $this->defaultUnit(); 
 				continue;
 			}
 			$out .= '<li><a href="#" data-alternate="' . $alternate . '" data-parentunit="' . $this->unit . '" data-unitswitcher data-unitvalue="' . $this->alternateNumber($alternate) . '">' . $alternate . '</a></li>';
 		}
-		$out .= '</ul>';
+		$out .= '</ul></div>';
 		return $out;
 	}
 
@@ -81,13 +88,19 @@ class Dropdown {
 	private function selectedUnit($alternates)
 	{
 		$preference = $this->user_preference->get($this->unit);
-		
-		if ( !$preference ) return '<a href="#" data-unit-dropdown data-unit="' . $this->unit . '" class="unit-switcher-toggle" data-toggle="dropdown"><span class="unit-switcher-value">' . $this->number . ' ' . $this->unit . '</span><span class="unit-switcher-caret"></span></a>';
+
+		$out = '<div class="unit-switcher-switch dropdown">';
+
+		if ( !$preference ) {
+			$out .= '<a href="#" data-unit-dropdown data-unit="' . $this->unit . '" class="unit-switcher-toggle" data-toggle="dropdown"><span class="unit-switcher-value">' . $this->number . ' ' . $this->unit . '</span><span class="unit-switcher-caret"></span></a>';
+			return $out;
+		}
 		
 		foreach ( $alternates as $alternate ){
 			if ( $alternate !== $preference ) continue;
-			return '<a href="#" data-unit-dropdown data-unit="' . $this->unit . '" class="unit-switcher-toggle" data-toggle="dropdown"><span class="unit-switcher-value">' . $this->alternateNumber($alternate) . ' ' . $alternate . '</span><span class="unit-switcher-caret"></span></a>';
+			$out .= '<a href="#" data-unit-dropdown data-unit="' . $this->unit . '" class="unit-switcher-toggle" data-toggle="dropdown"><span class="unit-switcher-value">' . $this->alternateNumber($alternate) . ' ' . $alternate . '</span><span class="unit-switcher-caret"></span></a>';
 		}
+		return $out;
 	}
 
 	/**
@@ -98,6 +111,15 @@ class Dropdown {
 	{
 		$out = '<li><a href="#" data-alternate="' . $this->unit . '" data-parentunit="' . $this->unit . '" data-unitswitcher data-unitvalue="' . $this->number . '">' . $this->unit . '</a></li>';
 		return $out;
+	}
+
+
+	/**
+	* Does this unit have alternates
+	*/
+	public function hasAlternates()
+	{
+		return ( empty($this->alternates) ) ? false : true;
 	}
 
 }
