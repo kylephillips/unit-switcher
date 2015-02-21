@@ -43,7 +43,7 @@
 			</label>
 			<div class="unitswitcher-dependency-content">
 				<p><em><?php _e('If you are compiling your own minified Javascript, include the below (required for plugin functionality):', 'unitswitcher'); ?></em></p>
-				<textarea><?php echo UnitSwitcher\Helpers::getFileContents('assets/js/src/unit-switcher.js'); ?></textarea>
+				<textarea><?php echo UnitSwitcher\Helpers::getFileContents('assets/js/src/unit-switcher.js') . "\n\n" . UnitSwitcher\Helpers::getFileContents('assets/js/src/dropdown.js'); ?></textarea>
 			</div>
 		</div>
 	</td>
