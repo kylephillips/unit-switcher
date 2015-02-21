@@ -20,6 +20,11 @@ class Dropdown {
 	private $number;
 
 	/**
+	* Round to
+	*/
+	private $round;
+
+	/**
 	* Alternates for a given unit
 	* @var array
 	*/
@@ -41,13 +46,14 @@ class Dropdown {
 	private $user_preference;
 
 
-	public function __construct($unit, $number)
+	public function __construct($unit, $number, $round)
 	{
 		$this->settings_repo = new SettingsRepository;
 		$this->calculator = new Calculator;
 		$this->user_preference = new UserPreference;
 		$this->number = $number;
 		$this->unit = $unit;
+		$this->round = $round;
 		$this->alternates = $this->settings_repo->getAlternates($this->unit);
 	}
 
@@ -57,7 +63,7 @@ class Dropdown {
 	private function alternateNumber($alternate)
 	{
 		if ( $alternate == $this->unit ) return $this->number;
-		return round($this->calculator->calculate($alternate, $this->number), 4);
+		return round($this->calculator->calculate($alternate, $this->number), intval($this->round));
 	}
 
 	/**

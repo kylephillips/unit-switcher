@@ -1,30 +1,23 @@
 <?php
 use UnitSwitcher\Entities\Unit\Unit;
 use UnitSwitcher\Entities\Unit\Dropdown;
+use UnitSwitcher\Entities\Unit\JSON;
 
 /**
 * Get the unit switcher dropdown
 */
-function get_unit_switcher($variable = '', $primaryunit = '')
+function get_unit_switcher($variable = '', $primaryunit = '', $round = 2)
 {	
-	$dropdown = new Dropdown($primaryunit, $variable);
+	$dropdown = new Dropdown($primaryunit, $variable, $round);
 	return  ( $dropdown->hasAlternates() ) ? $dropdown->display() : $variable . ' ' . $primaryunit;
 }
 
 /**
 * Echo the unit switcher dropdown
 */
-function the_unit_switcher($variable = '', $primaryunit = '')
+function the_unit_switcher($variable = '', $primaryunit = '', $round = 2)
 {
-	echo get_unit_switcher($variable, $primaryunit);
-}
-
-/**
-* Get a JSON formatted list of units
-*/
-function unit_switcher_json($variable = '', $primaryunit = '')
-{
-
+	echo get_unit_switcher($variable, $primaryunit, $round);
 }
 
 /**
