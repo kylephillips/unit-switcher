@@ -3,12 +3,20 @@ use UnitSwitcher\Entities\Unit\Unit;
 use UnitSwitcher\Entities\Unit\Dropdown;
 
 /**
-* Display the unit switcher
+* Get the unit switcher dropdown
 */
-function unit_switcher($variable = '', $primaryunit = '')
+function get_unit_switcher($variable = '', $primaryunit = '')
 {	
 	$dropdown = new Dropdown($primaryunit, $variable);
-	echo  ( $dropdown->hasAlternates() ) ? $dropdown->display() : $variable . ' ' . $primaryunit;
+	return  ( $dropdown->hasAlternates() ) ? $dropdown->display() : $variable . ' ' . $primaryunit;
+}
+
+/**
+* Echo the unit switcher dropdown
+*/
+function the_unit_switcher($variable = '', $primaryunit = '')
+{
+	echo get_unit_switcher($variable, $primaryunit);
 }
 
 /**
