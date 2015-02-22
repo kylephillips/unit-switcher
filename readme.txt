@@ -15,15 +15,17 @@ Add front end dropdown for toggling and saving of units and measurements.
 
 **Why Unit Switcher?**
 
-Unit Switcher provides your users with a way to choose and display their preferred unit of measurement on the fly. The user's preferred unit of measurement is saved via session, cookie, or none – configurable under the plugin settings. 
+Units provides your users with a way to choose and display their preferred unit of measurement on the fly. The user's preferred unit of measurement is saved via session, cookie, or none – configurable under the plugin settings. 
 
 One example of usage would be for a real estate listing website. If land size is stored as acres, it may be helpful to provide a method for users to toggle between acres and kilometers squared as their preferred method of measurement. Another example may be a recipe site, where it may be helpful to provide users with a way to toggle between ingredient measurement units.
 
 Units may be added as needed, along with alternate units and the conversion formulas.
 
-**Using Simple Locator**
+Visit [unitswitcher.com](http://unitswitcher.com) for more detailed information.
 
-First, add primary units under settings > Unit Switcher. Alternate units may be added by providing their name, singular name and conversion formula. Multiple alternate units may be set.
+**Using Units**
+
+First, add primary units under settings > Units. Alternate units may be added by providing their name, singular name and conversion formula. Multiple alternate units may be set.
 
 Use the function `unit_switcher($variable, $primaryunit)` in your template to display the switcher. Pass the stored value as the first paramter and primary unit of measurement as the second value.
 
