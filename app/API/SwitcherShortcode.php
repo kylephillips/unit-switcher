@@ -20,7 +20,8 @@ class SwitcherShortcode {
 	{
 		$this->options = shortcode_atts(array(
 			'unit' => null,
-			'value' => null
+			'value' => null,
+			'round' => 2
 		), $options);
 	}
 
@@ -31,7 +32,7 @@ class SwitcherShortcode {
 	{
 		$this->setOptions($options);
 		if ( isset($this->options['unit']) && isset($this->options['value']) )
-			unit_switcher($this->options['value'], $this->options['unit']);
+			return get_unit_switcher($this->options['value'], $this->options['unit'], $this->options['round']);
 	}
 
 }
