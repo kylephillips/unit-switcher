@@ -19,7 +19,7 @@ class Helpers {
 	*/
 	public static function plugin_url()
 	{
-		return plugins_url() . '/unit-switcher';
+		return plugins_url() . '/units';
 	}
 
 	/**

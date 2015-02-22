@@ -1,5 +1,5 @@
 <div class="wrap">
-	<h1><?php _e('Unit Switcher Settings', 'unitswitcher'); ?></h1>
+	<h1><?php _e('Units Settings', 'unitswitcher'); ?></h1>
 
 	<?php //if ( is_wp_error($unit_errors) ) echo $unit_errors->get_error_message(); ?>
 

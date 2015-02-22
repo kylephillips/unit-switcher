@@ -1,4 +1,4 @@
-=== Unit Switcher ===
+=== Units ===
 Contributors: kylephillips
 Donate link: http://unitswitcher.com/
 Tags: units, measurements, localization

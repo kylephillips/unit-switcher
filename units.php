@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Unit Switcher
+Plugin Name: Units
 Plugin URI: http://unitswitcher.com
 Description: Provides users with a way to change preferred measurement units while visiting your site.
 Version: 0.1

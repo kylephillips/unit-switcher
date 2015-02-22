@@ -29,8 +29,8 @@ class Settings {
 	public function registerSettingsPage()
 	{
 		add_options_page( 
-			__('Unit Switcher Settings', 'unitswitcher'),
-			__('Unit Switcher', 'unitswitcher'),
+			__('Units Settings', 'unitswitcher'),
+			__('Units', 'unitswitcher'),
 			'manage_options',
 			'unit-switcher', 
 			array( $this, 'settingsPage' ) 
