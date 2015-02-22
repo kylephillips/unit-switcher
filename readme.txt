@@ -74,10 +74,11 @@ Initial release
 == More Information ==
 
 = Using the Template Function =
-**unit_switcher($variable, $primaryunit);**
+**unit_switcher($variable, $primaryunit, $round);**
 
 Parameters:
 * $variable - The stored value (integer or float)
 * $primaryunit - The primary unit (the stored value should be stored in this unit)
+* $round - Number of digits to round to (default is 2)
 
 Visit [unitswitcher.com](http://unitswitcher.com) for more detailed information.
