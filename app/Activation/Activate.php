@@ -71,7 +71,8 @@ class Activate {
 	*/
 	private function setOptions()
 	{
-		if ( !get_option('unitswitcher_dependencies') ){
+		if ( !get_option('unitswitcher_dependencies') 
+			&& get_option('unitswitcher_dependencies') !== "" ){
 			update_option('unitswitcher_dependencies', array(
 				'css' => 'true',
 				'js' => 'true'
