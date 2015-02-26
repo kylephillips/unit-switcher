@@ -61,6 +61,9 @@ Visit Settings > Unit Switcher. A primary unit of measurement is required, along
 
 == Changelog ==
 
+= 1.0.1 =
+* Minor bug fixes in options saving
+
 = 1.0 =
 * Initial release 
 
