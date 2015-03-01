@@ -81,6 +81,9 @@ class Activate {
 		if ( !get_option('unitswitcher_save') ){
 			update_option('unitswitcher_save', 'none');
 		}
+		if ( !get_option('unitswitcher_cache') ){
+			update_option('unitswitcher_cache', 'false');
+		}
 		if ( !get_option('unitswitcher_units') ){
 			update_option('unitswitcher_units', $this->defaultUnits() );
 		}
