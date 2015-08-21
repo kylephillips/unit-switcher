@@ -61,6 +61,9 @@ Visit Settings > Unit Switcher. A primary unit of measurement is required, along
 
 == Changelog ==
 
+= 1.0.2 =
+* Bug fix - conflict with Bootstrap Javascript libary resolved.
+
 = 1.0.1 =
 * Page caching conflicts resolved. If using a page cache plugin, visit Settings > Unit Switcher to enable the fix.
 * Minor bug fixes in options saving
