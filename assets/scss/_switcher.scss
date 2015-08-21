@@ -32,11 +32,14 @@
 			display: block;
 			padding: 4px 15px;
 		}
+		&.active {
+			display: block;	
+		}
 	}
-	&.open ul {
+	&.active ul {
 		display: block;
 	}
-	&.open .unit-switcher-caret {
+	&.active .unit-switcher-caret {
 		background: url('../images/caret-up.png') no-repeat;
 	}
 }

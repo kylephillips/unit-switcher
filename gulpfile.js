@@ -17,7 +17,7 @@ var js_admin_source = [
 	'assets/js/src/unit-switcher-admin.js'
 ];
 var js_frontend_source = [
-	'assets/js/src/dropdown.js',
+	'assets/js/src/unit-switcher-dropdown.js',
 	'assets/js/src/unit-switcher.js'
 ];
 var js_compiled = 'assets/js/';
